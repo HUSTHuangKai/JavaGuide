@@ -1,4 +1,3 @@
-
 # 思维导图-索引篇
 
 > 系列思维导图源文件（数据库+架构）以及思维导图制作软件—XMind8 破解安装，公众号后台回复：**“思维导图”** 免费领取！（下面的图片不是很清楚，原图非常清晰，另外提供给大家源文件也是为了大家根据自己需要进行修改）
@@ -61,7 +60,7 @@ MySQL中的索引可以以一定顺序引用多列，这种索引叫作联合索
 select * from user where name=xx and city=xx ; ／／可以命中索引
 select * from user where name=xx ; // 可以命中索引
 select * from user where city=xx ; // 无法命中索引            
-```                                                          
+```
 这里需要注意的是，查询的时候如果两个条件都用上了，但是顺序不同，如 `city= xx and name ＝xx`，那么现在的查询引擎会自动优化为匹配联合索引的顺序，这样是能够命中索引的。
 
 由于最左前缀原则，在创建联合索引时，索引字段的顺序需要考虑字段值去重之后的个数，较多的放前面。ORDER BY子句也遵循此规则。
@@ -84,19 +83,19 @@ ALTER TABLE `table_name` ADD PRIMARY KEY ( `column` )
 ```
 ALTER TABLE `table_name` ADD UNIQUE ( `column` ) 
 ```
- 
+
 3.添加INDEX(普通索引) 
 
 ```
 ALTER TABLE `table_name` ADD INDEX index_name ( `column` )
 ```
- 
+
 4.添加FULLTEXT(全文索引) 
 
 ```
 ALTER TABLE `table_name` ADD FULLTEXT ( `column`) 
 ```
- 
+
 5.添加多列索引
 
 ```
